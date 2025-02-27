@@ -51,11 +51,11 @@
   preserve_ascii_control_characters = {{ load_options['preserve_ascii_control_characters'] }},
 {%- endif %}
 {%- if 'quote' in load_options %}
-  {% if load_options['quote'] == '"' %}
+  {%- if load_options['quote'] == '"' %}
     quote = '"',
-  {% else %}
+  {%- else %}
     quote = "{{ load_options['quote'] }}",
-  {% endif %}
+  {%- endif %}
 {%- endif %}
 {%- if 'skip_leading_rows' in load_options -%}
   skip_leading_rows = {{ load_options['skip_leading_rows'] }},
