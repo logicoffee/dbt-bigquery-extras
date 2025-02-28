@@ -1,5 +1,7 @@
 # dbt-bigquery-extras
 
+This is an experimental package for my study.
+
 ## custom materialization
 
 ### load
