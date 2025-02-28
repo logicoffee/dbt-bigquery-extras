@@ -47,8 +47,9 @@
       {{ dbt_bigquery_extras.build_load_options(config.get('load_options')) }}
     )
 
-    {%- if 'connection_name' in config %}
-    with connection "{{ config.get('connection_name') }}"
+    {%- set connection_name = config.get('connection_name') %}
+    {%- if connection_name is not none %}
+    with connection "{{ connection_name }}"
     {%- endif %}
   {%- endcall -%}
 
