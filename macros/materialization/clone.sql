@@ -1,4 +1,4 @@
-{% materialization table_snapshot, adapter='bigquery', supported_languages=['sql'] -%}
+{% materialization table_clone, adapter='bigquery', supported_languages=['sql'] -%}
   {%- set language = model['language'] -%}
   {%- set identifier = model['alias'] -%}
   {%- set old_relation = adapter.get_relation(database=database, schema=schema, identifier=identifier) -%}
@@ -14,7 +14,7 @@
   {% endif %}
 
   {%- call statement('main', language=language) -%}
-    create snapshot table {{ target_relation }}
+    create table {{ target_relation }}
     clone {{ config.get('source_table') }}
 
     {%- set system_time = config.get('system_time') %}
