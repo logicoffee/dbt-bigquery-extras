@@ -21,7 +21,7 @@
 }}
 ```
 
-### snapshot_table
+### table_snapshot
 
 `CREATE SNAPSHOT TABLE` statement as a model. Model body isn't needed.
 
@@ -30,7 +30,7 @@ The snapshot materialization is already implemented in [here](https://github.com
 ```
 {{
     config(
-        materialized = 'snapshot_table',
+        materialized = 'table_snapshot',
         source_table = 'my_schema.source_table'
     )
 }}

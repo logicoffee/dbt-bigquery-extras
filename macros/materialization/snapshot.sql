@@ -1,4 +1,4 @@
-{% materialization snapshot_table, adapter='bigquery', supported_languages=['sql'] -%}
+{% materialization table_snapshot, adapter='bigquery', supported_languages=['sql'] -%}
   {%- set language = model['language'] -%}
   {%- set identifier = model['alias'] -%}
   {%- set old_relation = adapter.get_relation(database=database, schema=schema, identifier=identifier) -%}
@@ -33,5 +33,4 @@
   {% do persist_docs(target_relation, model) %}
 
   {{ return({'relations': [target_relation]}) }}
-
 {% endmaterialization %}
